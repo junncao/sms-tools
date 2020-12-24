@@ -1,4 +1,5 @@
 import numpy as np
+from A2Part2 import genComplexSine
 
 """
 A2-Part-3: Implement the discrete Fourier transform (DFT)
@@ -17,6 +18,8 @@ Note that you might not get an exact 0 in the output because of the small numeri
 limited precision of the data in your computer. Usually these errors are of the order 1e-15 depending
 on your machine.
 """
+
+
 def DFT(x):
     """
     Input:
@@ -25,4 +28,20 @@ def DFT(x):
         The function should return a numpy array of length N
         X (numpy array) = The N point DFT of the input sequence x
     """
-    ## Your code here
+    # Your code here
+    N = x.size
+    X = np.array([])
+    for k in np.arange(0, N):
+        item = sum(x * genComplexSine(k, N))
+        X = np.append(X, item)
+
+    return X
+
+
+# Note that
+# `append` does not occur in-place: a new array is allocated and
+# filled.
+
+
+if __name__ == "__main__":
+    print(DFT(np.array([1, 2, 3, 4])))

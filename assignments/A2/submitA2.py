@@ -243,7 +243,7 @@ def output(partIdx):
     outputString = ''
     filename = open('testInputA2.pkl','rb')
     try: ## load the dict containing output types and test cases
-        dictInput = pickle.load(filename,encoding='latin1')  ## python3
+        dictInput = pickle.load(filename,encoding="latin1")  ## python3
     except TypeError:
         dictInput = pickle.load(filename)  ## python2 
         

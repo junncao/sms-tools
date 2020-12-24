@@ -16,6 +16,8 @@ EXAMPLE: If you run your function using N=5 and k=1, the function should return 
 array([ 1.0 + 0.j,  0.30901699 - 0.95105652j, -0.80901699 - 0.58778525j, -0.80901699 + 0.58778525j, 
 0.30901699 + 0.95105652j])
 """
+
+
 def genComplexSine(k, N):
     """
     Inputs:
@@ -25,4 +27,11 @@ def genComplexSine(k, N):
         The function should return a numpy array
         cSine (numpy array) = The generated complex sinusoid (length N)
     """
-    ## Your code here
+
+    n = np.arange(0, N)
+    x = np.exp(-1j * 2 * np.pi * k * n / N)
+    return x
+#s = np.exp(-1j * 2 * np.pi * k / N * nv)
+
+if __name__ == "__main__":
+    print(genComplexSine(1, 5))
